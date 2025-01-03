@@ -1054,7 +1054,54 @@ const getUserData = async(ownerId)=>{
 	
 }
 
-const getUserName = (data)=>{
+let starsX3 = null
+
+const getAstroSigns = ()=>{
+	let output = null
+	let powerOne = await fetch("/get-power-one",{
+		"method":"POST",
+		"body":JSON.stringify({"userId":userData.userId}),
+		"headers":{"Content-Type":"application/json"}
+	})
+	
+	let x3 = await powerOne.json()
+	let res = x3.resolution
+	if(res == true){
+		starsX3 = x3.stars
+		output = x3.stars
+	}
+}
+
+const getUserName = (userID)=>{
+	
+	let data = {firstName:null,lastName:null}
+	
+	if(starsX3 != null){
+		let y = await getAstroSigns(userData.id)
+		
+		let astroSigns = object.keys(y)
+		
+		for(var i=0 ; i<astroSigns.length; i ++){
+			let x = y[astroSigns[i]]
+			if(x.id === userID){
+				data.firstName = x.firstName
+				data.lastName = x.lastName
+			}
+		}
+	}else{
+		let y = starsX3
+		
+		let astroSigns = object.keys(y)
+		
+		for(var i=0 ; i<astroSigns.length; i ++){
+			let x = y[astroSigns[i]]
+			if(x.id === userID){
+				data.firstName = x.firstName
+				data.lastName = x.lastName
+			}
+		}
+	}
+	
 	return `${data.firstName} ${data.lastName}`
 }
 
@@ -1083,7 +1130,7 @@ async function setReviewIndicators(){
 		rsPClient.style.display = "block"
 		rsPClientHeader.style.display = "block"
 		
-		let owner = await getUserData(selectedJob.ownerId)
+		let owner = selectedJob.ownerId
 		
 		rsPClient.innerHTML = getUserName(owner)
 		
@@ -1686,7 +1733,7 @@ const projectListBuilder = async()=>{
 				let clientNameHeader = document.createElement("p")
 				clientNameHeader.setAttribute("class","infoHeaderOne")
 				clientNameHeader.innerHTML = "Client Name"
-				let user = await getUserData(job.ownerId)
+				let user = job.ownerId
 				clientName.innerHTML = `${getUserName(user)}`
 				
 				let projectName = document.createElement("p")
@@ -1780,7 +1827,7 @@ const projectListBuilder = async()=>{
 				let clientNameHeader = document.createElement("p")
 				clientNameHeader.innerHTML = "Client Name"
 				clientNameHeader.setAttribute("class","infoHeaderOne")
-				let user = await getUserData(job.ownerId)
+				let user = job.ownerId
 				clientName.innerHTML = `${getUserName(user)}`
 				
 				let projectName = document.createElement("p")

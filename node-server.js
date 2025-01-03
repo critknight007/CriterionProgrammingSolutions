@@ -1617,5 +1617,61 @@ app.get("/find-user/:id", async(request,response)=>{
 	}
 })
 
+async function GetUserNames(userId){
+	
+	let output;
+	
+	try{
+		
+		let check = checkIfUserSocketActive(userId)
+		let check2 = checkIfAdminSocketActive(userId)
+		
+		if(check || check2){
+			
+			let getUsers = await mongoClient.db("CriterionProgrammingData").collection("MainData").findOne({"name":"client-profiles"})
+			
+			let users = getUsers.body 
+			
+			output  = {}
+			
+			for(var i=0; i<users.length; i++){
+				let key = users[i].id
+				output.key = {
+					"firstName":users[i].firstName,
+					"lastName":users[i].lastName
+				}
+			}
+			
+		}else{
+			output = null
+		}
+		
+	}catch{
+		output = null
+	}
+	
+	return output
+}
+
+app.post("/get-power-one",async(request,response)=>{
+	try{
+		
+		let userId = request.body.userId
+		
+		let bodyLox = {resolution:false,stars:null}
+		
+		let getProcessedUserNames = await GetUserNames(userId)
+		
+		if(getProcessedUserNames){
+			bodyLox.resolution = true
+			bodyLox.stars = getProcessedUserNames
+		}
+		
+		response.send(JSON.stringify(bodyLox))
+		
+	}catch{
+		response.send(JSON.stringify({resolution:false}))
+	}
+})
 
 server.listen(port)
