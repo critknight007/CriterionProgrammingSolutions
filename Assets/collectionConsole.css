@@ -1485,17 +1485,16 @@ div#initPaymentProcess{
 
 div#dialogBackground{
 	
-	float:left;
 	width: 100%;
 	height: 100%;
 	position: fixed;
-	z-index: 3;
+	z-index: 1000;
 	background: #00000078;
 	opacity:0;
 	display: none;
 	transition: all linear 400ms;
 	
-	margin-top: -173%;
+	margin-top: -224%;
 }
 
 img#closeBtn{
