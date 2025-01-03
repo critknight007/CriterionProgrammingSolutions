@@ -373,7 +373,8 @@ button#noBtn{
 	.infoDetailsOne{
 		float:left;
 		margin-left: 5%;
-		margin-top: 0.3%
+		margin-top: 0.3%;
+		font-size: 20px;
 	}
 
 .textAreaInput{
@@ -1494,7 +1495,7 @@ div#dialogBackground{
 	display: none;
 	transition: all linear 400ms;
 	
-	margin-top: -173%;
+	margin-top: -69%;
 }
 
 img#closeBtn{
@@ -1653,7 +1654,7 @@ button#noBtn{
 .textAreaInput{
 	float:left;
 	width: 70%;
-	font-size: 18px;
+	font-size: 30px;
 	color: #376ca8;
 	font-weight: bold;
 	margin-top: 2%;
@@ -1983,7 +1984,7 @@ p#forgotPassword_header{
 }
 #projectDesc{
 	height: 30%;
-	font-size: 20px
+	font-size: 30px;
 }
 
 #currencyDsp{
@@ -2155,8 +2156,9 @@ p#forgotPassword_header{
 }
 #quickFeedBack{
 	float:left;
-	width:20%;
-	margin-left: 5%
+	width:46%;
+	margin-left: 11%;
+	font-size: 30px;
 }
 
 #adminActiveHolder{
@@ -2232,10 +2234,10 @@ p#forgotPassword_header{
 
 .updateCloud{
 	width: 70%;
-	height: 402px;
+	height: 485px;
 	margin-left: 15%;
 	margin-right: 15%;
-	margin-top: 2%;
+	margin-top: 8%;
 	margin-bottom: 2%;
 	border-radius: 12px;
 	box-shadow: 0px 0px 7px black;
@@ -2263,16 +2265,16 @@ p#forgotPassword_header{
 	float:left;
 	font-weight: bold;
 	color: #376ca8;
-	font-size: 41px;
+	font-size: 34px;
 	margin-top: 2%;
 	margin-bottom: 0%;
 		
 }
 
 .infoDetailOne{
-	width: 90%;
+	width: 88%;
 	margin-left: 5%;
-	margin-right: 10%;
+	margin-right: 5%;
 	float:left;
 	font-weight: bold;
 	color: #000000;
@@ -2289,7 +2291,7 @@ p#forgotPassword_header{
 	float:left;
 	font-weight: bold;
 	color: gray;
-	font-size: 35px;
+	font-size: 25px;
 	margin-top: 0.5%;
 	margin-bottom: 0%;
 	text-align:right
@@ -2303,6 +2305,8 @@ p#forgotPassword_header{
 	color:gray;
 	border-radius:7px;
 	margin-left:5%;
+	height: 120px;
+	width: 426px;
 }
 
 .infoInsHeader{
