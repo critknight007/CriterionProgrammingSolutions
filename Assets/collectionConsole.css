@@ -658,7 +658,7 @@ p#forgotPassword_header{
 	float:left;
 	margin-left: 33%;
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 35px;
 	color: #376ca8;
 	margin-top: 5%;
 }
@@ -1913,7 +1913,7 @@ p#forgotPassword_header{
 	width: 80%;
 	text-align: center;
 	font-weight: bold;
-	font-size: 98%;
+	font-size: 181%;
 	margin-top:3%;
 	color:#376ca8
 }
