@@ -1072,14 +1072,14 @@ const getAstroSigns = async()=>{
 	}
 }
 
-const getUserName = (userID)=>{
+const getUserName = async(userID)=>{
 	
 	let data = {firstName:null,lastName:null}
 	
 	if(starsX3 != null){
 		let y = await getAstroSigns(userData.id)
 		
-		let astroSigns = object.keys(y)
+		let astroSigns = y.keys()
 		
 		for(var i=0 ; i<astroSigns.length; i ++){
 			let x = y[astroSigns[i]]
@@ -1091,7 +1091,7 @@ const getUserName = (userID)=>{
 	}else{
 		let y = starsX3
 		
-		let astroSigns = object.keys(y)
+		let astroSigns = y.keys()
 		
 		for(var i=0 ; i<astroSigns.length; i ++){
 			let x = y[astroSigns[i]]
@@ -1132,7 +1132,7 @@ async function setReviewIndicators(){
 		
 		let owner = selectedJob.ownerId
 		
-		rsPClient.innerHTML = getUserName(owner)
+		rsPClient.innerHTML = await getUserName(owner)
 		
 		rsPname.innerHTML = selectedJob.name
 		rsPStatus.innerHTML = selectedJob.status

@@ -21,12 +21,12 @@ import { MongoClient } from 'mongodb';
  // Enable command monitoring for debugging
  
  // Enable command monitoring for debugging
+/*
 const mongoClient = new MongoClient('mongodb+srv://shopmatesales:N6Npa7vcMIaBULIS@cluster0.mgv7t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', { monitorCommands: true });
 mongoClient.connect()// Enable command monitoring for debugging
-/*
+*/
 const mongoClient = new MongoClient('mongodb://localhost:27017', { monitorCommands: true });
 mongoClient.connect()
-*/
 
 
 //server calls management
@@ -1623,10 +1623,11 @@ async function GetUserNames(userId){
 	
 	try{
 		
-		let check = checkIfUserSocketActive(userId)
-		let check2 = checkIfAdminSocketActive(userId)
+		let check = await  checkIfUserSocketActive(userId)
+		let check2 = await checkIfAdminSocketActive(userId)
 		
-		if(check || check2){
+		
+		if(check == true|| check2 == true){
 			
 			let getUsers = await mongoClient.db("CriterionProgrammingData").collection("MainData").findOne({"name":"client-profiles"})
 			
@@ -1654,7 +1655,7 @@ async function GetUserNames(userId){
 }
 
 app.post("/get-power-one",async(request,response)=>{
-	try{
+	//try{
 		
 		let userId = request.body.userId
 		
@@ -1669,9 +1670,9 @@ app.post("/get-power-one",async(request,response)=>{
 		
 		response.send(JSON.stringify(bodyLox))
 		
-	}catch{
+	/*}catch{
 		response.send(JSON.stringify({resolution:false}))
-	}
+	}*/
 })
 
 server.listen(port)
