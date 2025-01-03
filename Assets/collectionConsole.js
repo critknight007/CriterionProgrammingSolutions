@@ -1056,7 +1056,7 @@ const getUserData = async(ownerId)=>{
 
 let starsX3 = null
 
-const getAstroSigns = ()=>{
+const getAstroSigns = async()=>{
 	let output = null
 	let powerOne = await fetch("/get-power-one",{
 		"method":"POST",
