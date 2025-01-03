@@ -1062,7 +1062,7 @@ const getAstroSigns = async()=>{
 	
 	let x3 = await powerOne.json()
 	console.log(x3)
-	if(res == true){
+	if(x3.resolution == true){
 		starsX3 = x3.stars
 		output = x3.stars
 	}
@@ -1079,10 +1079,10 @@ const getUserName = async(userID)=>{
 		let astroSigns = Object.keys(y)
 		
 		for(var i=0 ; i<astroSigns.length; i ++){
-			let x = y[astroSigns[i]]
-			if(x.id === userID){
-				data.firstName = x.firstName
-				data.lastName = x.lastName
+			let x = astroSigns[i]
+			if(x === userID){
+				data.firstName = y[astroSigns[i]].firstName
+				data.lastName = y[astroSigns[i]].lastName
 			}
 		}
 	}else{
@@ -1091,13 +1091,15 @@ const getUserName = async(userID)=>{
 		let astroSigns = Object.keys(y)
 		
 		for(var i=0 ; i<astroSigns.length; i ++){
-			let x = y[astroSigns[i]]
-			if(x.id === userID){
-				data.firstName = x.firstName
-				data.lastName = x.lastName
+			let x = astroSigns[i]
+			if(x === userID){
+				data.firstName = y[astroSigns[i]].firstName
+				data.lastName = y[astroSigns[i]].lastName
 			}
 		}
 	}
+	
+	console.log(data)
 	
 	return `${data.firstName} ${data.lastName}`
 }
@@ -1731,7 +1733,7 @@ const projectListBuilder = async()=>{
 				clientNameHeader.setAttribute("class","infoHeaderOne")
 				clientNameHeader.innerHTML = "Client Name"
 				let user = job.ownerId
-				clientName.innerHTML = `${getUserName(user)}`
+				clientName.innerHTML = `${await getUserName(user)}`
 				
 				let projectName = document.createElement("p")
 				projectName.setAttribute("class","infoDetailsOne")
@@ -1825,7 +1827,7 @@ const projectListBuilder = async()=>{
 				clientNameHeader.innerHTML = "Client Name"
 				clientNameHeader.setAttribute("class","infoHeaderOne")
 				let user = job.ownerId
-				clientName.innerHTML = `${getUserName(user)}`
+				clientName.innerHTML = `${await getUserName(user)}`
 				
 				let projectName = document.createElement("p")
 				projectName.setAttribute("class","infoDetailsOne")
