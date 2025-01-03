@@ -1058,28 +1058,25 @@ let starsX3 = null
 
 const getAstroSigns = async()=>{
 	let output = null
-	let powerOne = await fetch("/get-power-one",{
-		"method":"POST",
-		"body":JSON.stringify({"userId":userData.userId}),
-		"headers":{"Content-Type":"application/json"}
-	})
+	let powerOne = await fetch("/get-power-one/"+userData.id)
 	
 	let x3 = await powerOne.json()
-	let res = x3.resolution
+	console.log(x3)
 	if(res == true){
 		starsX3 = x3.stars
 		output = x3.stars
 	}
+	return output
 }
 
 const getUserName = async(userID)=>{
 	
 	let data = {firstName:null,lastName:null}
 	
-	if(starsX3 != null){
+	if(starsX3 == null){
 		let y = await getAstroSigns(userData.id)
 		
-		let astroSigns = y.keys()
+		let astroSigns = Object.keys(y)
 		
 		for(var i=0 ; i<astroSigns.length; i ++){
 			let x = y[astroSigns[i]]
@@ -1091,7 +1088,7 @@ const getUserName = async(userID)=>{
 	}else{
 		let y = starsX3
 		
-		let astroSigns = y.keys()
+		let astroSigns = Object.keys(y)
 		
 		for(var i=0 ; i<astroSigns.length; i ++){
 			let x = y[astroSigns[i]]

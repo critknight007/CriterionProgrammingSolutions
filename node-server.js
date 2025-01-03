@@ -1621,12 +1621,12 @@ async function GetUserNames(userId){
 	
 	let output;
 	
-	try{
+	//try{
 		
-		let check = await  checkIfUserSocketActive(userId)
+		let check = await  checkIfSocketActive(userId)
 		let check2 = await checkIfAdminSocketActive(userId)
 		
-		
+		console.log(userId,check,check2)
 		if(check == true|| check2 == true){
 			
 			let getUsers = await mongoClient.db("CriterionProgrammingData").collection("MainData").findOne({"name":"client-profiles"})
@@ -1637,7 +1637,7 @@ async function GetUserNames(userId){
 			
 			for(var i=0; i<users.length; i++){
 				let key = users[i].id
-				output.key = {
+				output[`${key}`] = {
 					"firstName":users[i].firstName,
 					"lastName":users[i].lastName
 				}
@@ -1647,22 +1647,24 @@ async function GetUserNames(userId){
 			output = null
 		}
 		
-	}catch{
+	/*}catch{
 		output = null
-	}
+	}*/
 	
 	return output
 }
 
-app.post("/get-power-one",async(request,response)=>{
-	//try{
+app.get("/get-power-one/:id",async(request,response)=>{
+	try{
 		
-		let userId = request.body.userId
+		let userId = request.params.id
+		
+		console.log(request.body)
 		
 		let bodyLox = {resolution:false,stars:null}
 		
 		let getProcessedUserNames = await GetUserNames(userId)
-		
+		console.log(getProcessedUserNames)
 		if(getProcessedUserNames){
 			bodyLox.resolution = true
 			bodyLox.stars = getProcessedUserNames
@@ -1670,9 +1672,9 @@ app.post("/get-power-one",async(request,response)=>{
 		
 		response.send(JSON.stringify(bodyLox))
 		
-	/*}catch{
+	}catch{
 		response.send(JSON.stringify({resolution:false}))
-	}*/
+	}
 })
 
 server.listen(port)
