@@ -21,12 +21,12 @@ import { MongoClient } from 'mongodb';
  // Enable command monitoring for debugging
  
  // Enable command monitoring for debugging
-/*
 const mongoClient = new MongoClient('mongodb+srv://shopmatesales:N6Npa7vcMIaBULIS@cluster0.mgv7t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', { monitorCommands: true });
 mongoClient.connect()// Enable command monitoring for debugging
-*/
+/*
 const mongoClient = new MongoClient('mongodb://localhost:27017', { monitorCommands: true });
 mongoClient.connect()
+*/
 
 
 //server calls management
@@ -1343,7 +1343,7 @@ app.post('/check-email' , async(request,response)=>{
 const generateAccessToken = async () =>
 
 {
-	const base = "https://api-m..paypal.com";
+	const base = "https://api-m.paypal.com";
   const client_id = "AbBAhN4KA_82j0QSx3LOVPurpHGt40wsLtBUSBjfwIxxIbUDQW0_j5IrWfQ5scN8YihBWj40LbiZcCV4"
   const client_secret = "EG2IO4QwAMcPQ2zN8GMNZhTmQILyiTeobNwCWpItLohVfmnClG86L_xR_FqU2i9nr3gSdV93RmAYsEDR"
 		
@@ -1407,7 +1407,7 @@ async function createPaypalOrder(job,valuex) {
   
   console.log(accessToken)
 
-  let response =  await fetch ("https://api-m..paypal.com/v2/checkout/orders", {
+  let response =  await fetch ("https://api-m.paypal.com/v2/checkout/orders", {
 
     method: "POST",
 
@@ -1480,7 +1480,7 @@ const captureOrder = async (orderID) =>
 {
 
   const accessToken = await generateAccessToken();
-  const base = "https://api-m..paypal.com";
+  const base = "https://api-m.paypal.com";
 
   const url = `${base}/v2/checkout/orders/${orderID}/capture`;
 
