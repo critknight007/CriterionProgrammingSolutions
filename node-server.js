@@ -477,7 +477,7 @@ app.get("/check-live-admins", async(request,response)=>{
 })
 
 app.post("/register-job" , async( request,response )=>{ 
-    //try{
+    try{
         
         let data = request.body.newJob
       
@@ -520,9 +520,9 @@ app.post("/register-job" , async( request,response )=>{
         }else{
             response.sendStatus(404)
         }
-   /* }catch{
+   }catch{
         response.send(JSON.stringify({"status" : "server-error"}))
-    }*/
+    }
 })
 
 app.post("/register-client" , async( request,response )=>{ 
@@ -705,7 +705,7 @@ app.post("/add-user-update",async( request,response )=>{
 })
 
 app.post("/send-payment-data",async( request,response )=>{
-   // try{
+    try{
         
         let payment = request.body.payment
         let userId = request.body.userId
@@ -764,13 +764,13 @@ app.post("/send-payment-data",async( request,response )=>{
             response.sendStatus(404)
         }
         
-   /* }catch{
+   }catch{
         response.send(JSON.stringify({"status" : false}))
-    }*/
+    }
 })
 
 app.post("/get-fresh-user-data",async(request,response)=>{
-	//try{
+	try{
 		
 		let data = request.body
 		let userId = data.userId;
@@ -804,9 +804,9 @@ app.post("/get-fresh-user-data",async(request,response)=>{
 		}
 		
 		
-	/*}catch{
+	}catch{
 		response.send(JSON.stringify({"status":"server-error"}))
-	}*/
+	}
 })
 
 const processUsersForJobs = (users)=>{
@@ -828,7 +828,7 @@ const processUsersForJobs = (users)=>{
 }
 
 app.post("/get-paid-jobs", async(request,response)=>{
-	//try{
+	try{
 		
 		let getUsers = await mongoClient.db("CriterionProgrammingData").collection("MainData").findOne({"name":"client-profiles"})
 			
@@ -840,9 +840,9 @@ app.post("/get-paid-jobs", async(request,response)=>{
 		
 		response.send(JSON.stringify({"status":"success","data":output}))
 		
-	/*}catch{
+	}catch{
 		response.send(JSON.stringify({"status":"server-error"}))
-	}*/
+	}
 })
 
 app.post("/update-job",async( request,response )=>{
@@ -890,7 +890,7 @@ app.post("/update-job",async( request,response )=>{
 })
 
 app.post("/add-user-feedback",async( request,response )=>{
-    //try{
+    try{
         
         let update = request.body.data
         let userId = request.body.userId
@@ -932,9 +932,9 @@ app.post("/add-user-feedback",async( request,response )=>{
             response.sendStatus(404)
         }
         
-    /*}catch{
+    }catch{
         response.send(JSON.stringify({"status" : "server-error"}))
-    }*/
+    }
 })
 
 
@@ -1282,7 +1282,7 @@ app.post("/upload-screenshot/:id", async(request,response)=>{
 })
 
 app.post("/upload-zip/:id", async(request,response)=>{
-	//try{
+	try{
 		
 		let userId = request.params.id 
 		let check = await checkIfAdminSocketActive(userId)
@@ -1309,9 +1309,9 @@ app.post("/upload-zip/:id", async(request,response)=>{
 		
 		
 		
-	/*}catch{
+	}catch{
 		response.send(JSON.stringify({"status":false}))
-	}*/
+	}
 })
 
 app.post('/check-email' , async(request,response)=>{
@@ -1621,7 +1621,7 @@ async function GetUserNames(userId){
 	
 	let output;
 	
-	//try{
+	try{
 		
 		let check = await  checkIfSocketActive(userId)
 		let check2 = await checkIfAdminSocketActive(userId)
@@ -1647,9 +1647,9 @@ async function GetUserNames(userId){
 			output = null
 		}
 		
-	/*}catch{
+	}catch{
 		output = null
-	}*/
+	}
 	
 	return output
 }
