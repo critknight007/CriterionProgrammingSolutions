@@ -203,7 +203,6 @@ div#dialogBackground{
 	display: none;
 	transition: all linear 400ms;
 	
-	margin-top: -65%;
 	margin-left: -1%;
 }
 
@@ -477,10 +476,11 @@ button#noBtn{
 /*General Elements*/
 
 body{
-	height: 1000px;
+	height: 100%;
 	overflow: hidden;
 	background: #376ca8;
-	z-index:5
+	z-index:5;
+	margin-top: 0%;
 }
 
 #header{
@@ -498,7 +498,7 @@ body{
 
 #backgroundImage{
 	width: 102%;
-	position: relative;
+	position: fixed;
 	margin-left: -0.7%;
 	margin-top: -0.4%;
 	opacity: 0;
@@ -521,7 +521,7 @@ body{
 	width: 100%;
 	height: 100%;
 	margin-top: 10%;
-	position: relative;
+	position: fixed;
 }
 
 #WelcomeScreen{
@@ -545,26 +545,23 @@ body{
 #WelcomeAnimation{
 	width: 102%;
 	height: 55%;
-	position: relative;
-	margin-top: -68%;
+	position: fixed;
 	opacity: 0;
 	display: none;
 }
 
 #StartPage{
 	width: 102%;
-	height: 55%;
-	position: relative;
-	margin-top: -68%;
+	height: 85%;
+	position: fixed;
 	opacity: 0;
 	display: none;
 }
 
 #shapeArea{
 	width: 102%;
-	height: 55%;
-	position: relative;
-	margin-top: -68%;
+	height: 86%;
+	position: fixed;
 	opacity: 0;
 	display: none;
 }
@@ -572,7 +569,7 @@ body{
 #shape{
 	
 	float: left;
-	height: 145%;
+	height: 95%;
 	border-radius: 12px;
 	width: 90%;
 	margin-left: 4%;
@@ -1365,7 +1362,7 @@ p#alertMessage{
 	color: #376ca8;
 	text-align: center;
 	margin-left:5%;
-	font-size: 31px;
+	font-size: 40px;
 }
 
 button#closeAlertBtn{
@@ -1432,7 +1429,7 @@ div#paypalProceedWindow{
 	
 	float:left;
 	width: 90%;
-	height: 78%;
+	height: 61%;
 	margin-left: 5%;
 	margin-top: 3000px;
 	background: #f0a900;
@@ -1453,7 +1450,7 @@ p#header_instruction{
 	margin-top: 2%;
 	color: #376ca8;
 	font-weight: bold;
-	font-size: 40px;
+	font-size: 48px;
 	
 	text-align: center;
 }
@@ -1486,7 +1483,7 @@ div#initPaymentProcess{
 div#dialogBackground{
 	
 	width: 100%;
-	height: 100%;
+	height: 213%;
 	position: fixed;
 	z-index: 1000;
 	background: #00000078;
@@ -1494,7 +1491,7 @@ div#dialogBackground{
 	display: none;
 	transition: all linear 400ms;
 	
-	margin-top: -224%;
+	margin-top: 0;
 }
 
 img#closeBtn{
@@ -1534,7 +1531,7 @@ p#promptText{
 	color: #376ca8;
 	text-align: center;
 	
-	font-size: 212%;
+	font-size: 40px;
 	margin-left: 2.5%;
 }
 
@@ -1754,10 +1751,11 @@ button#noBtn{
 /*General Elements*/
 
 body{
-	height: 1000px;
+	width: 100%;
+	height: 100%;
 	overflow: hidden;
 	background: #376ca8;
-	z-index:5
+	z-index:0
 }
 
 #header{
@@ -1775,7 +1773,7 @@ body{
 
 #backgroundImage{
 	width: 3500px;
-	position: relative;
+	position: fixed;
 	margin-left: -156.7%;
 	margin-top: -0.4%;
 	opacity: 0;
@@ -1798,7 +1796,7 @@ body{
 	width: 100%;
 	height: 100%;
 	margin-top: 10%;
-	position: relative;
+	position: fixed;
 }
 
 #WelcomeScreen{
@@ -1823,7 +1821,6 @@ body{
 	width: 100%;
 	height: 55%;
 	position: fixed;
-	margin-top: -231%;
 	opacity: 0;
 	display: none;
 }
@@ -1832,7 +1829,7 @@ body{
 	width: 100%;
 	height: 93%;
 	position: fixed;
-	margin-top: -226%;
+	margin-top: ;
 	opacity: 0;
 	display: none;
 	float: left;
@@ -1840,9 +1837,9 @@ body{
 
 #shapeArea{
 	width: 102%;
-	height: 55%;
-	position: relative;
-	margin-top: -226%;
+	height: 87%;
+	position: fixed;
+	margin-top: 0%;
 	opacity: 0;
 	display: none;
 	float: left;
@@ -1851,7 +1848,7 @@ body{
 #shape{
 	
 	float: left;
-	height: 145%;
+	height: 80%;
 	border-radius: 12px;
 	width: 90%;
 	margin-left: 4%;
@@ -1859,7 +1856,7 @@ body{
 	background: white;
 	display: none;
 	opacity:0;
-	margin-top: 1%;
+	margin-top: 13%;
 }
 
 #welcomeText{
@@ -2116,6 +2113,10 @@ p#forgotPassword_header{
 }
 
 .menuItem{
+	font-size: 46px;
+	transition: all linear 70ms;
+}
+.menuItem:hover{
 	font-size: 46px;
 	transition: all linear 70ms;
 }
@@ -2440,8 +2441,8 @@ p#forgotPassword_header{
 	}
 	#screenshotsDelete{
 		margin-left: 15%;
-		margin-right: 60%;
-		font-size: 14px;
+		margin-right: 42%;
+		font-size: 43px;
 		margin-top: -1%;
 		font-weight: lighter;
 	}
@@ -2450,10 +2451,10 @@ p#forgotPassword_header{
 		float: left;
 		width: 39%;
 		height: 7%;
-		background: none;
+		background: black;
 		border: 3px solid black;
 		border-radius: 32px;
-		color:black;
+		color:white;
 		margin-left:30%;
 		margin-top:2%;
 		font-size: 38px;
@@ -2461,13 +2462,18 @@ p#forgotPassword_header{
 	
 	#selectSecreenImage:hover{
 		float: left;
-		width: 20%;
+		width: 39%;
 		height: 7%;
 		background: black;
 		border: 3px solid black;
-		border-radius: 12px;
-		color:white
+		border-radius: 32px;
+		color:white;
+		margin-left:30%;
+		margin-top:2%;
+		font-size: 38px;
 	}
+	
+	
 /*Payment Section*/
 #payment-section{
 	width: 100%;

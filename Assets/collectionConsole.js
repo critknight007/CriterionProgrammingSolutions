@@ -1940,15 +1940,20 @@ screenshotsDelete.addEventListener("click",()=>{
 	setScreenshotsHeader()
 })
 
-let stage = 1
-let inputx = document.getElementById("addImage")
+let stage = 0
+let inputx;
+inputx = document.createElement("input")
+inputx.setAttribute("type","file")
+inputx.setAttribute("accept",".jpg,.jpeg,.png,.JPEG")
 screenshotsIns.style.display = "none"
 screenshotSelect.addEventListener("click",()=>{
+	
 	if(stage == 0){
 		
 		inputx.click()
 		stage = 1
 		screenshotsIns.style.display = "block"
+		
 	}else{
 		if(inputx.files[0] != null){
 			screenshots.push(inputx.files[0])
@@ -2583,7 +2588,7 @@ function openPaypalProceed(){
 	
 	setTimeout(()=>{
 		
-		paypalInitWindow.style["margin-top"] = "9%"
+		paypalInitWindow.style["margin-top"] = "12%"
 	
 		setTimeout(()=>{
 			paypalInitWindow.style.opacity = "1"
@@ -2622,7 +2627,8 @@ function openLoadingWindow(){
 	
 	setTimeout(()=>{
 		//animate
-		loadingWindow.style["marginTop"] = "15%"
+		
+		loadingWindow.style["margin-top"] = "15%"
 		setTimeout(()=>{
 			
 			loadingWindow.style["opacity"] = "1"
@@ -3276,7 +3282,7 @@ function openList(){
 		
 		setTimeout(()=>{
 			
-			listDialog.style["margin-top"] = "3%"
+			listDialog.style["margin-top"] = "12%"
 			
 			if(type === "Currency"){
 				
